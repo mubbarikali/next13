@@ -1,8 +1,12 @@
 import Link from "next/link";
 import {FaStar, FaCodeBranch, FaEye} from 'react-icons/fa'
+import { resolve } from "styled-jsx/css";
 
 async function fetchRepos(){
     const response = await fetch('https://api.github.com/users/mubbarikali/repos');
+
+    await new Promise((resolve)=>setTimeout(resolve, 1000))
+
     const repos =  await response.json();
     return repos;
 }
