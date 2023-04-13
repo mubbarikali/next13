@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 async function fetchRepoDir(name){
-    await new Promise((resolve)=>setTimeout(resolve, 3000));
+    await new Promise((resolve)=>setTimeout(resolve, 1000));
     
     const respone = await fetch(`https://api.github.com/repos/mubbarikali/${name}/contents`);    
     const dirs = await respone.json();
