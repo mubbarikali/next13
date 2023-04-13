@@ -3,7 +3,11 @@ import Link from "next/link";
 async function fetchRepoDir(name){
     await new Promise((resolve)=>setTimeout(resolve, 1000));
     
-    const respone = await fetch(`https://api.github.com/repos/mubbarikali/${name}/contents`);    
+    const respone = await fetch(`https://api.github.com/repos/mubbarikali/${name}/contents`, {
+        next: {
+            revalidate: 120,
+        },
+    });    
     const dirs = await respone.json();
     return dirs;
 }
